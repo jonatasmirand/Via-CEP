@@ -13,6 +13,7 @@ document.getElementById("cep").addEventListener("blur", (evento) => {
                 document.getElementById("bairro").value = data.bairro;
                 document.getElementById("cidade").value = data.localidade;
                 document.getElementById("estado").value = data.uf;
+                document.getElementById("nuemro").value = data.numero;
                 
                 cadastrar();
             }else{
@@ -23,21 +24,24 @@ document.getElementById("cep").addEventListener("blur", (evento) => {
 })
 
 function cadastrar(){
-    const endereçoSalvo = {
+    const enderecoSalvo = {
         cep : document.getElementById("cep").value,
-        logradouro : document.getElementById("logradouro").value,    
+        logradouro : document.getElementById("logradouro").value,  
+        bairro : document.getElementById("bairro").value,  
         cidade : document.getElementById("cidade").value,   
-        estado : document.getElementById("estado").value   
+        estado : document.getElementById("estado").value,
+        numero : document.getElementById("numero").value,
     }
-    localStorage.setItem("endereçoSalvo", JSON.stringify(endereçoSalvo));
+    localStorage.setItem("enderecoSalvo", JSON.stringify(enderecoSalvo));
 }
 
 window.onload = function() {
-    const endereçoSalvo = JSON.parse(localStorage.getItem("endereçoSalvo"));
-        document.getElementById("cep").value = endereçoSalvo.cep;
-        document.getElementById("logradouro").value = endereçoSalvo.logradouro;
-        document.getElementById("bairro").value = endereçoSalvo.bairro;
-        document.getElementById("cidade").value = endereçoSalvo.cidade;
-        document.getElementById("estado").value = endereçoSalvo.estado;
+    const enderecoSalvo = JSON.parse(localStorage.getItem("enderecoSalvo"));
+        document.getElementById("cep").value = enderecoSalvo.cep;
+        document.getElementById("logradouro").value = enderecoSalvo.logradouro;
+        document.getElementById("bairro").value = enderecoSalvo.bairro;
+        document.getElementById("cidade").value = enderecoSalvo.cidade;
+        document.getElementById("estado").value = enderecoSalvo.estado;
+        document.getElementById("numero").value = enderecoSalvo.numero;
     }
 
