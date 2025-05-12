@@ -32,16 +32,12 @@ function cadastrar(){
     localStorage.setItem("endereçoSalvo", JSON.stringify(endereçoSalvo));
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-    const enderecoSalvo = localStorage.getItem("enderecoSalvo");
-
-    if(enderecoSalvo){
-        const endereco = JSON.parse(enderecoSalvo);
-        document.getElementById("cep").value = endereco.cep;
-        document.getElementById("logradouro").value = endereco.logradouro;
-        document.getElementById("bairro").value = endereco.bairro;
-        document.getElementById("cidade").value = endereco.cidade;
-        document.getElementById("estado").value = endereco.estado;
+window.onload = function() {
+    const endereçoSalvo = JSON.parse(localStorage.getItem("endereçoSalvo"));
+        document.getElementById("cep").value = endereçoSalvo.cep;
+        document.getElementById("logradouro").value = endereçoSalvo.logradouro;
+        document.getElementById("bairro").value = endereçoSalvo.bairro;
+        document.getElementById("cidade").value = endereçoSalvo.cidade;
+        document.getElementById("estado").value = endereçoSalvo.estado;
     }
-});
 
